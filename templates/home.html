@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Predict Insurance Bill</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Purchase Prediction</h1>
+
+     <!-- Form to enter new data for predictions  -->
+    <form action="{{ url_for('predict')}}"method="POST">
+
+      <select name="category">
+            <option value="">Select Customer Category</option>
+            <option value="MINOR">MINOR</option>
+            <option value="BANKS">BANKS</option>
+            <option value="CORPORATE">CORPORATE</option>
+            <option value="INDIVIDUAL">INDIVIDUAL</option>
+        </select> <br>
+        <select name="gender">
+            <option value="">Select Gender</option>
+            <option value="M">M</option>
+            <option value="F">F</option>
+            <option value="P">P</option>
+            <option value="BANKS">BANKS</option>
+            <option value="CORPORATE">CORPORATE</option>
+        </select> <br>
+        <select name="mobile_banking">
+            <option value="">Is Mobile Banking enabled?</option>
+            <option value="YES">YES</option>
+            <option value="NO">NO</option>
+        </select> <br>
+        <select name="internet_banking">
+            <option value="">Is Internet Banking enabled?</option>
+            <option value="YES">YES</option>
+            <option value="NO">NO</option>
+        </select> <br>
+        <select name="international">
+            <option value="">Is International Banking enabled?</option>    
+            <option value="YES">YES</option>
+            <option value="NO">NO</option>
+        </select> <br>
+        <select name="source">
+            <option value="">What was the account opening source?</option>
+            <option value="BRANCH">BRANCH</option>
+            <option value="ONLINE">ONLINE</option>
+        </select> <br>
+        <select name="year">
+            <option value="">When was the account opened?</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+        </select> <br>
+        <select name="region">
+            <option value="">Select Region</option>
+            <option value="England">England</option>
+            <option value="Scotland">Scotland</option>
+            <option value="Wales">Wales</option>
+            <option value="North Ireland">North Ireland</option>
+        </select> <br>
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+
+    </form>
+
+   <br>
+   <br>
+  
+   
+ </div>
+ 
+  <h3>{{pred}}</h3>
+
+</body>
+</html>
